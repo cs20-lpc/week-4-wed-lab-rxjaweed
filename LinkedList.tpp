@@ -57,7 +57,30 @@ void LinkedList<T>::clear() {
 template <typename T>
 void LinkedList<T>::copy(const LinkedList<T>& copyObj) 
 {
-    
+    if (head == nullPtr)
+    {
+        return nullPtr;
+    }
+
+    Node* newHead = new Node<T>;
+    newHead->value = head->value;
+    newHead->next = nullptr;
+
+    Node* currentNew = newHead;
+    Node* currentOld = head->next;
+
+    // Copy the rest
+    while (currentOld != nullptr) 
+    {
+        Node* newNode = new Node<T>;
+        newNode->value = currentOld->value;
+        newNode->next = nullptr;
+
+        currentNew->next = newNode;
+        currentNew = newNode;
+        currentOld = currentOld->next;
+    }
+    return newHead;
 }
 
 template <typename T>
@@ -81,8 +104,9 @@ int LinkedList<T>::getLength() const {
 }
 
 template <typename T>
-void LinkedList<T>::insert(int position, const T& elem) {
-    // TODO
+void LinkedList<T>::insert(int position, const T& elem) 
+{
+    
 }
 
 template <typename T>
@@ -129,4 +153,5 @@ ostream& operator<<(ostream& outStream, const LinkedList<T>& myObj) {
 
     return outStream;
 }
+
 
