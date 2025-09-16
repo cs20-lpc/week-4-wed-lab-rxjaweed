@@ -55,8 +55,9 @@ void LinkedList<T>::clear() {
 }
 
 template <typename T>
-void LinkedList<T>::copy(const LinkedList<T>& copyObj) {
-    // TODO
+void LinkedList<T>::copy(const LinkedList<T>& copyObj) 
+{
+    
 }
 
 template <typename T>
@@ -128,3 +129,4 @@ ostream& operator<<(ostream& outStream, const LinkedList<T>& myObj) {
 
     return outStream;
 }
+
